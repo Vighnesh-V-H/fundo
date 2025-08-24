@@ -5,16 +5,16 @@ pub enum Errors {
     #[msg("The program has already been initialied.")]
     ProgramAlreadyInitialized,
     #[msg("Title exceeds the maximum length of 64 characters.")]
-    TitleTooLong,
+    MaxTitleLengthExceeded,
     #[msg("Description exceeds the maximum length of 512 characters.")]
-    DescriptionTooLong,
-    #[msg("Image URL exceeds the maximum length of 256 characters.")]
-    ImageUrlTooLong,
+    MaxDescriptionLengthExceeded,
+    #[msg("Image URL exceeds the maximum length of 200 characters.")]
+    MaxImageUrlLengthExceeded,
     #[msg("Invalid goal amount. Goal must be greater than zero.")]
     InvalidGoalAmount,
     #[msg("Unauthorized access.")]
     Unauthorized,
-    #[msg("Campaign not found.")]
+    #[msg("Campaign not found. Please check the id once!")]
     CampaignNotFound,
     #[msg("Campaign is inactive.")]
     InactiveCampaign,
