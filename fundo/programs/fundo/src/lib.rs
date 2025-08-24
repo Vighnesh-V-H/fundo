@@ -45,15 +45,16 @@ pub mod fundo {
     goal: Option<u64>,
 )->Result<()>{
 
-instructions::update_campaign(
-   ctx, 
-   cid ,
-    title,
-    description,
-    image_url,
-    goal,
-)
+instructions::update_campaign(ctx, cid ,title,description,image_url,goal)
 
+}
+
+pub fn delete_campaign(ctx:Context<DeleteCampaignCtx> , cid:u64)->Result<()>{
+instructions::delete_campaign(ctx, cid)
+}
+
+pub fn deactivate_campaign(ctx:Context<DeActivateCampaignCtx> , cid:u64)->Result<()>{
+instructions::deactivate_campaign(ctx, cid)
 }
 
 
