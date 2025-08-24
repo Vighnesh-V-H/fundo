@@ -60,5 +60,8 @@ instructions::deactivate_campaign(ctx, cid)
 pub fn donate(ctx:Context<DonateCtx> , cid:u64 , amount:u64)->Result<()>{
   instructions::donate(ctx, cid, amount)
 }
+pub fn withdraw(ctx:Context<WithdrawCtx> , cid:u64 , amount:u64)->Result<()>{
+  instructions::withdraw(ctx, cid, amount)
+}
 
 }
