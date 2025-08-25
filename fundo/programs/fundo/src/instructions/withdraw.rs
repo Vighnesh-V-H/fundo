@@ -2,6 +2,8 @@ use anchor_lang::{prelude::*};
 use crate::constants::ANCHOR_DEFAULT_SPACE;
 use crate::states::{Campaign, ProgramState, Transaction};
 use crate::errors::Errors::*;
+use crate::constants::seeds;
+
 
 pub fn withdraw(ctx:Context<WithdrawCtx> , cid:u64 , amount:u64)->Result<()>{
     let campaign =&mut ctx.accounts.campaign;
@@ -65,7 +67,7 @@ pub fn withdraw(ctx:Context<WithdrawCtx> , cid:u64 , amount:u64)->Result<()>{
 #[instruction(cid: u64)]
 pub struct WithdrawCtx<'info>{
 
-    #[account(mut ,seeds = [b"campaign", cid.to_le_bytes().as_ref()], bump)]
+    #[account(mut ,seeds = [seeds::CAMPAIGN, cid.to_le_bytes().as_ref()], bump)]
     pub campaign :Account<'info , Campaign>,
 
         #[account(
@@ -73,7 +75,7 @@ pub struct WithdrawCtx<'info>{
         payer = creator,
         space = ANCHOR_DEFAULT_SPACE + Transaction::INIT_SPACE,
         seeds = [
-            b"withdraw",
+            seeds::WITHDRAW,
             creator.key().as_ref(),
             cid.to_le_bytes().as_ref(),
             (campaign.withdrawals + 1).to_le_bytes().as_ref()

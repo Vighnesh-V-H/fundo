@@ -5,6 +5,7 @@ pub mod delete_campaign;
 pub mod deactivate_campaign;
 pub mod donate;
 pub mod withdraw;
+pub mod update_platform;
 
 pub use init::*;
 pub use create_campaign::*;
@@ -13,3 +14,4 @@ pub use delete_campaign::*;
 pub use deactivate_campaign::*;
 pub use donate::*;
 pub use withdraw::*;
+pub use update_platform::*;

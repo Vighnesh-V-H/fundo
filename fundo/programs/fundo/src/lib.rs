@@ -5,10 +5,9 @@ pub mod constants;
 pub mod instructions;
 pub mod states;
 
-use errors::*;
-use constants::*;
+
 use instructions::*;
-use states::*;
+
 
 
 
@@ -45,7 +44,8 @@ pub mod fundo {
     goal: Option<u64>,
 )->Result<()>{
 
-instructions::update_campaign(ctx, cid ,title,description,image_url,goal)
+
+instructions::update_campaign(ctx, cid, title, description, image_url, goal)
 
 }
 
@@ -62,6 +62,9 @@ pub fn donate(ctx:Context<DonateCtx> , cid:u64 , amount:u64)->Result<()>{
 }
 pub fn withdraw(ctx:Context<WithdrawCtx> , cid:u64 , amount:u64)->Result<()>{
   instructions::withdraw(ctx, cid, amount)
+}
+pub fn update_platform_fee(ctx:Context<UpdatePlatformFeeCtx> , new_platform_fee:u64)->Result<()>{
+  instructions::update_platform_fee(ctx, new_platform_fee)
 }
 
 }
