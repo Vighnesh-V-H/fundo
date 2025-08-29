@@ -19,7 +19,7 @@ pub fn update_campaign(
         return Err(Unauthorized.into());
     }
 
-    if campaign.cid != cid-1 {
+    if campaign.cid != cid {
           msg!("CampaignNotFound Error: Mismatch between account cid ({}) and provided cid ({})", campaign.cid, cid);
         return Err(CampaignNotFound.into());
     }

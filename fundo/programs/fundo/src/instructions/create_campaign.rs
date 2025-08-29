@@ -27,6 +27,7 @@ pub fn create_campaign(
     if goal < 1_000_000_000 {
         return Err(InvalidGoalAmount.into());
     }
+    program_state.campaign_count+=1;
 
     campaign.cid = program_state.campaign_count;
     campaign.creator = *ctx.accounts.creator.key;
@@ -34,7 +35,7 @@ pub fn create_campaign(
     campaign.description = description;
     campaign.goal = goal;
     campaign.image_url = image_url;
-    program_state.campaign_count+=1;
+    
     campaign.amount_raised = 0;
     campaign.donors = 0;
     campaign.withdrawals = 0;
